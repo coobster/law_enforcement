@@ -23,10 +23,10 @@ def query_db(query,args=(),one=False):
 
 @app.route('/',methods = ['GET','POST'])
 def index():
-    page = "<h1><font color='#0000e0'>USA Police department Military Supply Spending</font></h1><p>"
+    page = "<h1><font color='#0000e0'>USA Police department Military Supply Spending</font></h1><p><div style='column-count: 4;'><h2>"
     for x in [x[0] for x in query_db('select distinct state from all_states order by state')]:
         page += "<a href=\"/s/{}\">{}</a><br>\n".format(x,x) 
-    return page
+    return page + "</h2></div>"
 
 @app.route('/s/<data>')
 def state(data):
