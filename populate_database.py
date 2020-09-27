@@ -37,4 +37,5 @@ for active_sheet_name in sheets:
   if not cur.executemany(sql,values):
      print ('DATABASE ERROR')
   db.commit()
-  db.close()
+
+db.close()
