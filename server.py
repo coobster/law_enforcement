@@ -32,7 +32,7 @@ def index():
 def state(data):
     page = "<h1><font color='#0000e0'>USA Police department Military Supply Spending</font></h1><p>"
     page += "<h1><font color='#00e000'>{}</font></h1><p>".format(data)
-    total = [float(i[0].replace('$','').replace(',','')) for i in query_db('select Acquisition_Value from all_states where state=?',(data,))]
+    total = [float(i[0]) for i in query_db('select Acquisition_Value from all_states where state=?',(data,))]
     page += "<h1>Total: ${}</h1><p>".format(round(sum(total),2))
     for x in [x[0] for x in query_db('select distinct station_name from all_states where state=?',(data,))]:
         page += "<a href=\"/d/{}\">{}</a><br>\n".format(x,x)
@@ -42,7 +42,7 @@ def state(data):
 def department(data):
     page = "<h1><font color='#0000e0'>USA Police department Military Supply Spending</font></h1><p>"
     page += "<h1><font color='#00e000'>{}</font></h1><p>".format(data)
-    total = [float(i[0].replace('$','').replace(',','')) for i in query_db('select Acquisition_Value from all_states where station_name=?',(data,))]
+    total = [float(i[0]) for i in query_db('select Acquisition_Value from all_states where station_name=?',(data,))]
     page += "<h1>Total: ${}</h1><p>".format(round(sum(total),2)) 
     page += "<table><tr><td><b>Item Name</b></td><td><b>Cost</b></td><td><b>Quantity</b></td></tr>"
     for x in query_db('select Item_Name,Quantity,Acquisition_Value from all_states where station_name=?',(data,)):
