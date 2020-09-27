@@ -3,6 +3,7 @@ from sqlite3 import connect
 from os.path import exists
 from requests import get
 
+# This is not a module it is just a script to setup the database. if you import this file as a module expect unexpected results.
 DATABASE= 'test.db'
 LAW_FILE_URL = 'https://www.dla.mil/Portals/104/Documents/DispositionServices/LESO/DISP_AllStatesAndTerritories_06302020.xlsx'
 LAW_FILENAME = LAW_FILE_URL.split('/')[-1]
