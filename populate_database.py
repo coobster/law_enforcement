@@ -36,3 +36,5 @@ for active_sheet_name in sheets:
   print("Adding {} items into state {}".format(count,state))
   if not cur.executemany(sql,values):
      print ('DATABASE ERROR')
+  db.commit()
+  db.close()
