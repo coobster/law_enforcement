@@ -1,2 +1,5 @@
 # law_enforcement
-USA Law enforcement spending on Military Weapons
+USA Law enforcement purchases of military weapons.
+
+simply run:
+cmd> python3 server.py
