@@ -1,6 +1,7 @@
 import openpyxl
 from sqlite3 import connect
 from os.path import exists
+from os import remove
 from requests import get
 
 # This is not a module it is just a script to setup the database. if you import this file as a module expect unexpected results.
@@ -41,3 +42,4 @@ for active_sheet_name in sheets:
      db.commit()
 
 db.close()
+remove(LAW_FILENAME)
