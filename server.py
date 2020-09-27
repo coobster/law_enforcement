@@ -7,10 +7,6 @@ app = Flask(__name__)
 
 DATABASE = 'test.db'
 
-if not exists(DATABASE):
-    print('DATABASE NOT FOUND: downloading database...')
-    import populate_database
-
 #database loading function
 def get_db():
     db = getattr(g, '_database', None)
@@ -60,4 +56,9 @@ def close_connection(exception):
         db.close()
 
 if __name__ == '__main__':
+    # if the database is not present load the database from the military servers.
+    if not exists(DATABASE):
+        print('DATABASE NOT FOUND: downloading database...')
+        import populate_database
+    # Run the web application at localhost:4321
     app.run(host='0.0.0.0', port=4321, threaded=True)
