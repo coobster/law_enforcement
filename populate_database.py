@@ -19,6 +19,7 @@ if not exists(DATABASE):
   db = connect(DATABASE)
   cur = db.cursor()
   cur.execute(sql)
+  db.commit()
 else:
   db = connect(DATABASE)
   cur = db.cursor()
